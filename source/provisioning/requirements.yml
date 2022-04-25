@@ -1,0 +1,27 @@
+---
+# Install Collections and Roles with Ansible Galaxy
+# ansible-galaxy install -r requirements.yml
+
+# List installed collections or roles and the respective versions
+# ansible-galaxy collection list
+# ansible-galaxy role list
+
+# Verify installed collections
+# ansible-galaxy collection verify -r requirements.yml 
+
+collections:
+
+  # - name: community.general
+  #   type: galaxy
+  #   version: '>=3.3.2' # Certbot role fix (snapd), see https://github.com/ansible-collections/community.general/issues/2953 for details
+  #   # requirements met by Ansible 2.11.3
+  
+roles:
+
+  - src: git@github.com:classyllama/ansible-role-boilerplate.git
+    name: classyllama.boilerplate
+    scm: git
+  
+  - src: git@github.com:classyllama/ansible-role-syseng-access.git
+    name: classyllama.syseng-access
+    scm: git
