@@ -4,13 +4,12 @@
   become: true
 
   vars_files:
-    - ./devenv_vars.default.yml
-    - ./devenv_vars.config.yml
+    - ./molecule_vars.default.yml
+    - ./molecule_vars.config.yml
   
   roles:
     - { role: classyllama.syseng-access }
     - { role: geerlingguy.repo-epel }
-    - { role: classyllama.repo_ius, when: use_classyllama_repo_ius | default(false) }
   
   tasks:
     - name: Common Software Packages

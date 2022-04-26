@@ -3,33 +3,33 @@
 # This file should be committed to the project repo
 
 # Environment Configs
-$dev_machine_name = 'dev-molecule.lan'
+$dev_machine_name = 'dev-molecule-docker.lan'
 $dev_additional_hostnames = %w()
 
 # System Configs
-$vagrant_base_box = 'bento/centos-8'
+$vagrant_base_box = 'bento/rockylinux-8'
 $dev_vm_cpus = 4
 $dev_vm_ram = 4096
 
 $ssh_private_key        =   [
-                                 '~/.ssh/id_ed25519'
+                                 '~/.ssh/id_rsa'
                             ]
 $ssh_public_key_paths   =   [
-                                 '~/.ssh/id_ed25519.pub'
+                                 '~/.ssh/id_rsa.pub'
                             ]
 
-# $persistent_disks = [
+#$persistent_disks = [
 #   {
-#     "description" => "data",
-#     "persistDiskPath" => "data_disk.vmdk",
-#     "persistDiskSizeGb" => 50
-#   },
+#     "description" => "home",
+#     "persistDiskPath" => "home_disk.vmdk",
+#     "persistDiskSizeGb" => 20
+#   }
 #   {
 #     "description" => "datadb",
 #     "persistDiskPath" => "datadb_disk.vmdk",
 #     "persistDiskSizeGb" => 50
 #   }
-# ]
+#]
 
 # $use_provider = "virtualbox" # possible values ["virtualbox", "digitalocean"]
 

@@ -25,3 +25,11 @@ roles:
   - src: git@github.com:classyllama/ansible-role-syseng-access.git
     name: classyllama.syseng-access
     scm: git
+
+  - src: git@github.com:classyllama/ansible-role-repo-python-appstream.git
+    name: classyllama.repo-python-appstream
+    scm: git
+
+  - src: git@github.com:classyllama/ansible-role-python.git
+    name: classyllama.python
+    scm: git

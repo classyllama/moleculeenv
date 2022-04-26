@@ -6,8 +6,8 @@
   gather_facts: no
 
   vars_files:
-    - ../devenv_vars.default.yml
-    - ../devenv_vars.config.yml
+    - ../molecule_vars.default.yml
+    - ../molecule_vars.config.yml
   
   tasks:
     - name: Display Ansible Version and Requirement

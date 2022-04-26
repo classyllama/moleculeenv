@@ -1,0 +1,35 @@
+- hosts: all
+  name: "Molecule Playbook"
+  gather_facts: no
+  become: true
+
+  tasks:
+    - name: Molecule Install | Copy molecule install script
+      ansible.builtin.copy:
+        src: ../persistent/files/molecule_install.sh 
+        dest: /home/molecule/molecule_install.sh
+        owner: molecule
+        group: molecule
+        mode: 0755
+
+    - name: Molecule Install | Install molecule into venv
+      ansible.builtin.command: /home/molecule/molecule_install.sh
+      become_user: molecule
+
+    - name: Molecule Install | Ensure virtualenv is sourced from the .bashrc
+      blockinfile:
+        dest: "/home/molecule/.bashrc"
+        block: |
+          source /home/molecule/moleculeenv/bin/activate
+        marker: '# {mark} ANSIBLE MANAGED BLOCK - virtualenv'
+        insertbefore: BOF
+        create: yes 
+      become_user: molecule
+
+    - name: Molecule Install | Copy ansible.cfg
+      ansible.builtin.copy:
+        src: ../persistent/files/ansible.cfg
+        dest: /home/molecule/ansible.cfg
+        owner: molecule
+        group: molecule
+        mode: 0755
