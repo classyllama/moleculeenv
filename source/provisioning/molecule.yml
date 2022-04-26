@@ -29,7 +29,7 @@
     - name: Molecule Install | Copy ansible.cfg
       ansible.builtin.copy:
         src: ../persistent/files/ansible.cfg
-        dest: /home/molecule/ansible.cfg
+        dest: /home/molecule/.ansible.cfg
         owner: molecule
         group: molecule
         mode: 0755
